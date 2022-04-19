@@ -10,6 +10,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.My_Library">
         <activity
+            android:name=".Activities.AboutActivity"
+            android:label="@string/about"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.FavouriteActivity"
+            android:label="@string/see_your_favourites"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.WantToReadActivity"
+            android:label="@string/want_to_read"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.AlreadyReadActivity"
+            android:label="@string/already_read_books"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.CurrentlyReadActivity"
+            android:label="@string/currently_reading_books"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.AllBooksActivity"
+            android:label="@string/show_all_books"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

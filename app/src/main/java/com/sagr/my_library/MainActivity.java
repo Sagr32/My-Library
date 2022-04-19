@@ -2,9 +2,17 @@ package com.sagr.my_library;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.sagr.my_library.Activities.AboutActivity;
+import com.sagr.my_library.Activities.AllBooksActivity;
+import com.sagr.my_library.Activities.AlreadyReadActivity;
+import com.sagr.my_library.Activities.CurrentlyReadActivity;
+import com.sagr.my_library.Activities.FavouriteActivity;
+import com.sagr.my_library.Activities.WantToReadActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,27 +27,33 @@ public class MainActivity extends AppCompatActivity {
         initViews();
 
         btnAllBooks.setOnClickListener((View v) -> {
-            //TODO: Implement All Books
+           Intent intent = new Intent(MainActivity.this, AllBooksActivity.class);
+           startActivity(intent);
         });
 
         btnAlreadyRead.setOnClickListener((View v) -> {
-            //TODO: Implement Already Read  Books
+            Intent intent = new Intent(MainActivity.this, AlreadyReadActivity.class);
+            startActivity(intent);
         });
 
         btnWantToRead.setOnClickListener((View v) -> {
-            //TODO: Implement Want To Read Books
+            Intent intent = new Intent(MainActivity.this, WantToReadActivity.class);
+            startActivity(intent);
 
         });
 
         btnCurrentlyReading.setOnClickListener((View v)->{
-            //TODO: Implement Currently Reading Books
+            Intent intent = new Intent(MainActivity.this, CurrentlyReadActivity.class);
+            startActivity(intent);
         });
 
         btnFavorite.setOnClickListener((View v)->{
-            //TODO: Implement Favorite Books
+            Intent intent = new Intent(MainActivity.this, FavouriteActivity.class);
+            startActivity(intent);
         });
         btnAbout.setOnClickListener((View v )->{
-            //TODO: Implement About
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
         });
 
 

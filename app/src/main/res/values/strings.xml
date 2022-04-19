@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My_Library</string>
+    <string name="app_name">My Library</string>
     <string name="app_icon">App icon</string>
     <string name="my_library">My Library</string>
     <string name="show_all_books">Show All Books</string>
