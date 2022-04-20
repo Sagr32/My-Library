@@ -9,4 +9,7 @@
     <string name="about">About</string>
     <string name="developed_by_sakr">Developed By Sakr</string>
     <string name="want_to_read">Want To Read</string>
+    <string name="book_image">Book Image</string>
+    <string name="book_name">Book Name</string>
+
 </resources>

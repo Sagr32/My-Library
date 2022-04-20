@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sagr.my_library">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,27 +11,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.My_Library">
         <activity
-            android:name=".Activities.AboutActivity"
+            android:name=".activities.AboutActivity"
             android:label="@string/about"
             android:exported="false" />
         <activity
-            android:name=".Activities.FavouriteActivity"
+            android:name=".activities.FavouriteActivity"
             android:label="@string/see_your_favourites"
             android:exported="false" />
         <activity
-            android:name=".Activities.WantToReadActivity"
+            android:name=".activities.WantToReadActivity"
             android:label="@string/want_to_read"
             android:exported="false" />
         <activity
-            android:name=".Activities.AlreadyReadActivity"
+            android:name=".activities.AlreadyReadActivity"
             android:label="@string/already_read_books"
             android:exported="false" />
         <activity
-            android:name=".Activities.CurrentlyReadActivity"
+            android:name=".activities.CurrentlyReadActivity"
             android:label="@string/currently_reading_books"
             android:exported="false" />
         <activity
-            android:name=".Activities.AllBooksActivity"
+            android:name=".activities.AllBooksActivity"
             android:label="@string/show_all_books"
             android:exported="false" />
         <activity

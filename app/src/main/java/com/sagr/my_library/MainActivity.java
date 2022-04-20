@@ -7,12 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.sagr.my_library.Activities.AboutActivity;
-import com.sagr.my_library.Activities.AllBooksActivity;
-import com.sagr.my_library.Activities.AlreadyReadActivity;
-import com.sagr.my_library.Activities.CurrentlyReadActivity;
-import com.sagr.my_library.Activities.FavouriteActivity;
-import com.sagr.my_library.Activities.WantToReadActivity;
+import com.sagr.my_library.activities.AboutActivity;
+import com.sagr.my_library.activities.AllBooksActivity;
+import com.sagr.my_library.activities.AlreadyReadActivity;
+import com.sagr.my_library.activities.CurrentlyReadActivity;
+import com.sagr.my_library.activities.FavouriteActivity;
+import com.sagr.my_library.activities.WantToReadActivity;
 
 public class MainActivity extends AppCompatActivity {
 
