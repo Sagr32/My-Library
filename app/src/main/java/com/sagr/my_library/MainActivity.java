@@ -13,6 +13,7 @@ import com.sagr.my_library.activities.AlreadyReadActivity;
 import com.sagr.my_library.activities.CurrentlyReadActivity;
 import com.sagr.my_library.activities.FavouriteActivity;
 import com.sagr.my_library.activities.WantToReadActivity;
+import com.sagr.my_library.utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initViews();
-
+        Utils.getInstance();
         btnAllBooks.setOnClickListener((View v) -> {
            Intent intent = new Intent(MainActivity.this, AllBooksActivity.class);
            startActivity(intent);
