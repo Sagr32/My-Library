@@ -11,5 +11,12 @@
     <string name="want_to_read">Want To Read</string>
     <string name="book_image">Book Image</string>
     <string name="book_name">Book Name</string>
+    <string name="down_arrow">Down Arrow</string>
+    <string name="author_label">Author</string>
+    <string name="shot_description_label">Short description</string>
+    <string name="up_arrow">Up Arrow</string>
+    <string name="delete">Delete</string>
+    <string name="long_description">Long Description</string>
+    <string name="pages">Pages :  </string>
 
 </resources>

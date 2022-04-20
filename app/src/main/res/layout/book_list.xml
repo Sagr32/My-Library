@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/tools"
     android:id="@+id/cardView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -14,24 +13,142 @@
         android:layout_centerHorizontal="true"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imgBookImage"
+        <RelativeLayout
+            android:id="@+id/collapsedLayout"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:contentDescription="@string/book_image"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
 
-        <TextView
-            android:id="@+id/txtBookName"
+            <ImageView
+                android:id="@+id/imgBookImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:contentDescription="@string/book_image"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/txtBookName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgBookImage"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:text="@string/book_name"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/btnDownArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgBookImage"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/down_arrow"
+                android:src="@drawable/ic_down_arrow"
+                app:tint="@color/arrowColor" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/expandedLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imgBookImage"
-            android:layout_gravity="center"
+            android:layout_below="@+id/collapsedLayout"
             android:layout_margin="8dp"
-            android:text="@string/book_name"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/txtAuthorLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/author_label"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtAuthorLabel"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txtShortDescLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtAuthor"
+                android:text="@string/shot_description_label"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtShortDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtShortDescLabel"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txtLongDescLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtShortDesc"
+                android:text="@string/long_description"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
 
+            <TextView
+                android:id="@+id/txtLongDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtLongDescLabel"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txtPagesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtLongDesc"
+                android:text="@string/pages"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtPages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtLongDesc"
+                android:layout_toEndOf="@id/txtPagesLabel"
+                android:text=""
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <ImageView
+                android:id="@+id/btnUpArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtPagesLabel"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:contentDescription="@string/up_arrow"
+                android:src="@drawable/ic_up_arrow"
+                app:tint="@color/arrowColor" />
+
+            <TextView
+                android:id="@+id/txtDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtPagesLabel"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_toStartOf="@id/btnUpArrow"
+                android:layout_toLeftOf="@id/btnUpArrow"
+                android:text="@string/delete"
+                android:textColor="@color/pink"
+                android:textStyle="bold" />
+        </RelativeLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

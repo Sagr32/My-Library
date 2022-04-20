@@ -1,6 +1,10 @@
 package com.sagr.my_library.activities;
 
+import static java.security.AccessController.getContext;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +15,7 @@ import com.sagr.my_library.adapters.BookRecViewAdapter;
 import com.sagr.my_library.models.Book;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class AllBooksActivity extends AppCompatActivity {
 
@@ -32,6 +37,7 @@ public class AllBooksActivity extends AppCompatActivity {
         books.add(new Book(4,"Speaking JavaScript","https://images-na.ssl-images-amazon.com/images/I/91sXL7wrjgL.jpg","An In-Depth Guide for Programmers","Like it or not, JavaScript is everywhere these days -from browser to server to mobile- and now you, too, need to learn the language or dive deeper than you have. This concise book guides you into and through JavaScript, written by a veteran programmer who once found himself in the same position.",
                 "O'Reilly Media",460));
         adapter.setBooks(books);
+
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
