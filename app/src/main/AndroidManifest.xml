@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sagr.my_library">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,29 +12,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.My_Library">
         <activity
-            android:name=".activities.AboutActivity"
-            android:label="@string/about"
+            android:name=".activities.BookDetailsActivity"
             android:exported="false" />
+        <activity
+            android:name=".activities.AboutActivity"
+            android:exported="false"
+            android:label="@string/about" />
         <activity
             android:name=".activities.FavouriteActivity"
-            android:label="@string/see_your_favourites"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/see_your_favourites" />
         <activity
             android:name=".activities.WantToReadActivity"
-            android:label="@string/want_to_read"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/want_to_read" />
         <activity
             android:name=".activities.AlreadyReadActivity"
-            android:label="@string/already_read_books"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/already_read_books" />
         <activity
             android:name=".activities.CurrentlyReadActivity"
-            android:label="@string/currently_reading_books"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/currently_reading_books" />
         <activity
             android:name=".activities.AllBooksActivity"
-            android:label="@string/show_all_books"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/show_all_books" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -1,6 +1,8 @@
 package com.sagr.my_library.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.sagr.my_library.R;
+import com.sagr.my_library.activities.BookDetailsActivity;
 import com.sagr.my_library.models.Book;
 
 import java.util.ArrayList;
@@ -35,10 +38,13 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
     @Override
     public BookViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = View.inflate(parent.getContext(), R.layout.book_list,null);
+        BookViewHolder bookViewHolder = new BookViewHolder(view);
+        bookViewHolder.cardView.setOnClickListener((View v)->{
+          Intent intent = new Intent(parent.getContext(), BookDetailsActivity.class);
+          parent.getContext().startActivity(intent);
+        });
 
-
-
-        return  new BookViewHolder(view);
+        return  bookViewHolder;
     }
 
     @Override
@@ -106,6 +112,7 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
               book.setExpanded(!book.isExpanded());
               notifyItemChanged(getAdapterPosition());
           });
+
       }
   }
 }

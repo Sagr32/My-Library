@@ -18,5 +18,9 @@
     <string name="delete">Delete</string>
     <string name="long_description">Long Description</string>
     <string name="pages">Pages :  </string>
+    <string name="currently_reading">Currently reading</string>
+    <string name="already_read">Already read</string>
+    <string name="add_to_favourites">Add to favourites</string>
+    <string name="description">Description</string>
 
 </resources>

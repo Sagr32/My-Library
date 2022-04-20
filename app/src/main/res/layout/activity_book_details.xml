@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".activities.BookDetailsActivity">
+
+    <ImageView
+        android:id="@+id/imgBookImage"
+        android:layout_width="140dp"
+        android:layout_height="200dp"
+        android:contentDescription="@string/book_image"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <Button
+        android:id="@+id/btnAddToCurrentlyReading"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/currently_reading" />
+
+    <Button
+        android:id="@+id/btnAddToWantToRead"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAddToCurrentlyReading"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="24dp"
+        android:text="@string/want_to_read" />
+
+    <Button
+        android:id="@+id/btnAddToAlreadyRead"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAddToWantToRead"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="24dp"
+        android:text="@string/already_read" />
+
+    <Button
+        android:id="@+id/btnAddToFavourites"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAddToAlreadyRead"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/add_to_favourites" />
+
+    <TextView
+        android:id="@+id/txtBookNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAddToFavourites"
+        android:text="@string/book_name"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtBookName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAddToFavourites"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@+id/txtBookNameLabel"
+        android:layout_toRightOf="@+id/txtBookNameLabel"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txtAuthorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtBookName"
+        android:layout_marginTop="16dp"
+        android:text="@string/author_label"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtBookName"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@+id/txtAuthorLabel"
+        android:layout_toRightOf="@+id/txtAuthorLabel"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txtPagesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtAuthor"
+        android:layout_marginTop="16dp"
+        android:text="@string/pages"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtPagesCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtAuthor"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@+id/txtPagesLabel"
+        android:layout_toRightOf="@+id/txtPagesLabel"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txtDescLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPagesLabel"
+        android:layout_marginTop="16dp"
+        android:text="@string/description"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtDescLabel"
+        android:layout_marginTop="16dp"
+        android:text="" />
+</RelativeLayout>
