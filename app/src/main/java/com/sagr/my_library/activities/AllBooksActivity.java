@@ -23,13 +23,14 @@ public class AllBooksActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private BookRecViewAdapter adapter;
     private ArrayList<Book> books = new ArrayList<>();
+    public static final String ACTIVITY_NAME = "AllBooks";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_books);
         recyclerView = findViewById(R.id.booksRecView);
-        adapter = new BookRecViewAdapter(this);
+        adapter = new BookRecViewAdapter(this, ACTIVITY_NAME);
 
         adapter.setBooks(Utils.getAllBooksList());
 

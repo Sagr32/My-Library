@@ -111,4 +111,10 @@ public class Utils {
         }
         return false;
     }
+
+
+
+    public boolean removeFromList(Book book, ArrayList<Book>list){
+       return list.remove(book);
+    }
 }

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -51,21 +50,18 @@ public class BookDetailsActivity extends AppCompatActivity {
 
     void handleAlreadyRead(Book book) {
         ArrayList<Book> alreadyReadList = Utils.getAlreadyReadList();
-        boolean existInAlreadyRead = Utils.getInstance().existInList(book,alreadyReadList);
-        Log.i("EXIST","existInAlreadyRead"+existInAlreadyRead);
+        boolean existInAlreadyRead = Utils.getInstance().existInList(book, alreadyReadList);
 
-        if(existInAlreadyRead){
+        if (existInAlreadyRead) {
             addToAlreadyRead.setEnabled(false);
-        }
-        else{
-            addToAlreadyRead.setOnClickListener((View v)->{
-                if(Utils.getInstance().addToAlreadyReady(book)){
-                    Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this,AlreadyReadActivity.class);
+        } else {
+            addToAlreadyRead.setOnClickListener((View v) -> {
+                if (Utils.getInstance().addToAlreadyReady(book)) {
+                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, AlreadyReadActivity.class);
                     startActivity(intent);
-                }
-                else{
-                    Toast.makeText(this,"error , please try again later",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "error , please try again later", Toast.LENGTH_SHORT).show();
 
                 }
             });
@@ -74,20 +70,17 @@ public class BookDetailsActivity extends AppCompatActivity {
 
     void handleCurrentlyRead(Book book) {
         ArrayList<Book> currentlyReadList = Utils.getCurrentlyReadingList();
-        boolean existInCurrentlyRead = Utils.getInstance().existInList(book,currentlyReadList);
-        Log.i("EXIST","existInCurrentlyRead"+existInCurrentlyRead);
-        if(existInCurrentlyRead){
+        boolean existInCurrentlyRead = Utils.getInstance().existInList(book, currentlyReadList);
+        if (existInCurrentlyRead) {
             addToCurrentlyReading.setEnabled(false);
-        }
-        else{
-            addToCurrentlyReading.setOnClickListener((View v)->{
-                if(Utils.getInstance().addToCurrentlyRead(book)){
-                    Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this,CurrentlyReadActivity.class);
+        } else {
+            addToCurrentlyReading.setOnClickListener((View v) -> {
+                if (Utils.getInstance().addToCurrentlyRead(book)) {
+                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, CurrentlyReadActivity.class);
                     startActivity(intent);
-                }
-                else{
-                    Toast.makeText(this,"error , please try again later",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "error , please try again later", Toast.LENGTH_SHORT).show();
 
                 }
             });
@@ -96,20 +89,17 @@ public class BookDetailsActivity extends AppCompatActivity {
 
     void handleFavurite(Book book) {
         ArrayList<Book> favouriteList = Utils.getFavouriteList();
-        boolean existInFavourite = Utils.getInstance().existInList(book,favouriteList);
-        Log.i("EXIST","existInFavourite"+existInFavourite);
-        if(existInFavourite){
+        boolean existInFavourite = Utils.getInstance().existInList(book, favouriteList);
+        if (existInFavourite) {
             addToFavourites.setEnabled(false);
-        }
-        else{
-            addToFavourites.setOnClickListener((View v)->{
-                if(Utils.getInstance().addToFavourite(book)){
-                    Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this,FavouriteActivity.class);
+        } else {
+            addToFavourites.setOnClickListener((View v) -> {
+                if (Utils.getInstance().addToFavourite(book)) {
+                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, FavouriteActivity.class);
                     startActivity(intent);
-                }
-                else{
-                    Toast.makeText(this,"error , please try again later",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "error , please try again later", Toast.LENGTH_SHORT).show();
 
                 }
             });
@@ -118,20 +108,17 @@ public class BookDetailsActivity extends AppCompatActivity {
 
     void handleWantToRead(Book book) {
         ArrayList<Book> wantToReadList = Utils.getWantToReadList();
-        boolean existInWantToRead = Utils.getInstance().existInList(book,wantToReadList);
-        Log.i("EXIST","existInWantToRead"+existInWantToRead);
-        if(existInWantToRead){
+        boolean existInWantToRead = Utils.getInstance().existInList(book, wantToReadList);
+        if (existInWantToRead) {
             addToWantToRead.setEnabled(false);
-        }
-        else{
-            addToWantToRead.setOnClickListener((View v)->{
-                if(Utils.getInstance().addToWantToRead(book)){
-                    Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this,WantToReadActivity.class);
+        } else {
+            addToWantToRead.setOnClickListener((View v) -> {
+                if (Utils.getInstance().addToWantToRead(book)) {
+                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, WantToReadActivity.class);
                     startActivity(intent);
-                }
-                else{
-                    Toast.makeText(this,"error , please try again later",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "error , please try again later", Toast.LENGTH_SHORT).show();
 
                 }
             });
