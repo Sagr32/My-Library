@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         });
         btnAbout.setOnClickListener((View v )->{
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            intent.putExtra(AboutActivity.WEB_URL,"https://github.com/Sagr32/My-Library");
             startActivity(intent);
         });
 
