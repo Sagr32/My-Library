@@ -3,10 +3,8 @@ package com.sagr.my_library.adapters;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -33,8 +31,8 @@ import java.util.ArrayList;
 public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.BookViewHolder> {
 
     private ArrayList<Book> books = new ArrayList<>();
-    private Context mContext;
-    private String parentName;
+    private final Context mContext;
+    private final String parentName;
 
     public void setBooks(ArrayList<Book> books) {
         this.books = books;
@@ -96,19 +94,13 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
                     .ACTIVITY_NAME:
                 holder.btnDelete.setOnClickListener((View v) -> {
                     builder.setMessage("Are you sure you want to delete " + books.get(holder.getAdapterPosition()).getBookName() + "?");
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                    builder.setNegativeButton("No", (dialog, which) -> {
 
-                        }
                     });
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Utils.getInstance().removeFromList(books.get(holder.getAdapterPosition()), Utils.getAlreadyReadList());
-                            notifyDataSetChanged();
-                            Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
-                        }
+                    builder.setPositiveButton("Yes", (dialog, which) -> {
+                        Utils.getInstance(mContext).removeFromAlreadyRead(books.get(holder.getAdapterPosition()));
+                        notifyDataSetChanged();
+                        Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
                     });
                     builder.create().show();
 
@@ -120,20 +112,14 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
                     .ACTIVITY_NAME:
                 holder.btnDelete.setOnClickListener((View v) -> {
                     builder.setMessage("Are you sure you want to delete " + books.get(holder.getAdapterPosition()).getBookName() + "?");
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                    builder.setNegativeButton("No", (dialog, which) -> {
 
-                        }
                     });
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Utils.getInstance().removeFromList(books.get(holder.getAdapterPosition()), Utils.getCurrentlyReadingList());
-                            notifyDataSetChanged();
-                            Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
+                    builder.setPositiveButton("Yes", (dialog, which) -> {
+                        Utils.getInstance(mContext).removeFromCurrentlyReading(books.get(holder.getAdapterPosition()));
+                        notifyDataSetChanged();
+                        Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
 
-                        }
                     });
                     builder.create().show();
 
@@ -145,21 +131,15 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
                     .ACTIVITY_NAME:
                 holder.btnDelete.setOnClickListener((View v) -> {
                     builder.setMessage("Are you sure you want to delete " + books.get(holder.getAdapterPosition()).getBookName() + "?");
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                    builder.setNegativeButton("No", (dialog, which) -> {
 
-                        }
                     });
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Utils.getInstance().removeFromList(books.get(holder.getAdapterPosition()), Utils.getFavouriteList());
-                            notifyDataSetChanged();
-                            Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
+                    builder.setPositiveButton("Yes", (dialog, which) -> {
+                        Utils.getInstance(mContext).removeFromFavorites(books.get(holder.getAdapterPosition()));
+                        notifyDataSetChanged();
+                        Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
 
 
-                        }
                     });
                     builder.create().show();
 
@@ -171,21 +151,15 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
 
                 holder.btnDelete.setOnClickListener((View v) -> {
                     builder.setMessage("Are you sure you want to delete " + books.get(holder.getAdapterPosition()).getBookName() + "?");
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                    builder.setNegativeButton("No", (dialog, which) -> {
 
-                        }
                     });
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                    builder.setPositiveButton("Yes", (dialog, which) -> {
 
-                            Utils.getInstance().removeFromList(books.get(holder.getAdapterPosition()), Utils.getWantToReadList());
-                            notifyDataSetChanged();
-                            Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
+                        Utils.getInstance(mContext).removeFromWantToRead(books.get(holder.getAdapterPosition()));
+                        notifyDataSetChanged();
+                        Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
 
-                        }
                     });
                     builder.create().show();
 
@@ -204,10 +178,10 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
 
     public class BookViewHolder extends RecyclerView.ViewHolder {
 
-        private CardView cardView;
-        private TextView bookName, authorName, shortDesc, longDesc, totalPages, btnDelete;
-        private ImageView bookImage, btnUpArrow, btnDownArrow;
-        private RelativeLayout collapsedLayout, expandedLayout;
+        private final CardView cardView;
+        private final TextView bookName, authorName, shortDesc, longDesc, totalPages, btnDelete;
+        private final ImageView bookImage, btnUpArrow, btnDownArrow;
+        private final RelativeLayout collapsedLayout, expandedLayout;
 
 
         public BookViewHolder(@NonNull View itemView) {

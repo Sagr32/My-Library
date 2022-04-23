@@ -29,7 +29,7 @@ public class FavouriteActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.booksRecView);
         adapter = new BookRecViewAdapter(this,ACTIVITY_NAME);
 
-        adapter.setBooks(Utils.getFavouriteList());
+        adapter.setBooks(Utils.getInstance(this).getFavouriteList());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

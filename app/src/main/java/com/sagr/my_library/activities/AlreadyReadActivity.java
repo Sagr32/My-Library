@@ -29,7 +29,7 @@ public class AlreadyReadActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.booksRecView);
         adapter = new BookRecViewAdapter(this,ACTIVITY_NAME);
 
-        adapter.setBooks(Utils.getAlreadyReadList());
+        adapter.setBooks(Utils.getInstance(this).getAlreadyReadList());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

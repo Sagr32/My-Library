@@ -32,7 +32,7 @@ public class AllBooksActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.booksRecView);
         adapter = new BookRecViewAdapter(this, ACTIVITY_NAME);
 
-        adapter.setBooks(Utils.getAllBooksList());
+        adapter.setBooks(Utils.getInstance(this).getAllBooksList());
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

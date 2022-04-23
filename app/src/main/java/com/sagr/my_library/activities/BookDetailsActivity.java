@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -35,12 +36,16 @@ public class BookDetailsActivity extends AppCompatActivity {
         if (intent != null) {
             int bookId = intent.getIntExtra(BOOK_ID_KEY, -1);
             if (bookId != -1) {
-                Book incomingBook = Utils.getInstance().getBookById(bookId);
+                Book incomingBook = Utils.getInstance(this).getBookById(bookId);
                 setData(incomingBook);
                 handleAlreadyRead(incomingBook);
                 handleCurrentlyRead(incomingBook);
                 handleFavurite(incomingBook);
                 handleWantToRead(incomingBook);
+
+
+
+
             }
 
         }
@@ -49,14 +54,14 @@ public class BookDetailsActivity extends AppCompatActivity {
     }
 
     void handleAlreadyRead(Book book) {
-        ArrayList<Book> alreadyReadList = Utils.getAlreadyReadList();
-        boolean existInAlreadyRead = Utils.getInstance().existInList(book, alreadyReadList);
+        ArrayList<Book> alreadyReadList = Utils.getInstance(this).getAlreadyReadList();
+        boolean existInAlreadyRead = Utils.getInstance(this).existInList(book, alreadyReadList);
 
         if (existInAlreadyRead) {
             addToAlreadyRead.setEnabled(false);
         } else {
             addToAlreadyRead.setOnClickListener((View v) -> {
-                if (Utils.getInstance().addToAlreadyReady(book)) {
+                if (Utils.getInstance(this).addToAlreadyReady(book)) {
                     Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, AlreadyReadActivity.class);
                     startActivity(intent);
@@ -69,13 +74,13 @@ public class BookDetailsActivity extends AppCompatActivity {
     }
 
     void handleCurrentlyRead(Book book) {
-        ArrayList<Book> currentlyReadList = Utils.getCurrentlyReadingList();
-        boolean existInCurrentlyRead = Utils.getInstance().existInList(book, currentlyReadList);
+        ArrayList<Book> currentlyReadList = Utils.getInstance(this).getCurrentlyReadingList();
+        boolean existInCurrentlyRead = Utils.getInstance(this).existInList(book, currentlyReadList);
         if (existInCurrentlyRead) {
             addToCurrentlyReading.setEnabled(false);
         } else {
             addToCurrentlyReading.setOnClickListener((View v) -> {
-                if (Utils.getInstance().addToCurrentlyRead(book)) {
+                if (Utils.getInstance(this).addToCurrentlyRead(book)) {
                     Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, CurrentlyReadActivity.class);
                     startActivity(intent);
@@ -88,13 +93,13 @@ public class BookDetailsActivity extends AppCompatActivity {
     }
 
     void handleFavurite(Book book) {
-        ArrayList<Book> favouriteList = Utils.getFavouriteList();
-        boolean existInFavourite = Utils.getInstance().existInList(book, favouriteList);
+        ArrayList<Book> favouriteList = Utils.getInstance(this).getFavouriteList();
+        boolean existInFavourite = Utils.getInstance(this).existInList(book, favouriteList);
         if (existInFavourite) {
             addToFavourites.setEnabled(false);
         } else {
             addToFavourites.setOnClickListener((View v) -> {
-                if (Utils.getInstance().addToFavourite(book)) {
+                if (Utils.getInstance(this).addToFavourite(book)) {
                     Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, FavouriteActivity.class);
                     startActivity(intent);
@@ -107,13 +112,13 @@ public class BookDetailsActivity extends AppCompatActivity {
     }
 
     void handleWantToRead(Book book) {
-        ArrayList<Book> wantToReadList = Utils.getWantToReadList();
-        boolean existInWantToRead = Utils.getInstance().existInList(book, wantToReadList);
+        ArrayList<Book> wantToReadList = Utils.getInstance(this).getWantToReadList();
+        boolean existInWantToRead = Utils.getInstance(this).existInList(book, wantToReadList);
         if (existInWantToRead) {
             addToWantToRead.setEnabled(false);
         } else {
             addToWantToRead.setOnClickListener((View v) -> {
-                if (Utils.getInstance().addToWantToRead(book)) {
+                if (Utils.getInstance(this).addToWantToRead(book)) {
                     Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, WantToReadActivity.class);
                     startActivity(intent);

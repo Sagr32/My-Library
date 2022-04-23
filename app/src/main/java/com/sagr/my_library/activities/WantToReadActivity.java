@@ -29,7 +29,7 @@ public class WantToReadActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.booksRecView);
         adapter = new BookRecViewAdapter(this,ACTIVITY_NAME);
 
-        adapter.setBooks(Utils.getWantToReadList());
+        adapter.setBooks(Utils.getInstance(this).getWantToReadList());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
